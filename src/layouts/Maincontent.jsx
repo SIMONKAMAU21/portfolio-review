@@ -30,7 +30,7 @@ const Maincontent = () => {
         <Box flex="2" p={4} ml={marginLeft} w="100%" overflow="hidden">
           <Suspense
             fallback={
-              <VStack  h="100vh" width='80vw'>
+              <VStack  h="100vh" width={{base: '90vw' ,md:'80vw'}}>
                 <Box padding="6" boxShadow="lg" bg="white" h='100%' w='100%'>
                   <SkeletonCircle size="10" />
                   <SkeletonText
