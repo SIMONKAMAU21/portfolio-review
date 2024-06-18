@@ -54,7 +54,7 @@ const Contact = () => {
         Contact Me
       </Heading>
       <Text fontSize='lg' textAlign='center' mb={6}>
-        We would love to hear from you! Please fill out the form below to get in touch.
+        I would love to hear from you! Please fill out the form below to get in touch.
       </Text>
       <Box mb='10px' display='flex' justifyContent='center'>
        <HStack spacing={4} mt={6} justifyContent=''>
