@@ -35,9 +35,9 @@ const Maincontent = () => {
                   <SkeletonCircle size="10" />
                   <SkeletonText
                     mt="4"
-                    noOfLines={4}
+                    noOfLines={8}
                     spacing="4"
-                    skeletonHeight="2"
+                    skeletonHeight="8"
                   />
                 </Box>
               </VStack>
