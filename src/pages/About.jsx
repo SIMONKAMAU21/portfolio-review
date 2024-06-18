@@ -27,7 +27,6 @@ import {
 import { motion } from 'framer-motion';
 import { FaJs, FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGit, FaDocker } from 'react-icons/fa';
 import simon from '../assets/simo.jpg';
-import project from '../assets/Screenshot (6).png'
 import { localImages } from '../utils/imageUtils';
 import { Link } from 'react-router-dom';
 
