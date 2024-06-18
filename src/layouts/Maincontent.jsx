@@ -31,7 +31,7 @@ const Maincontent = () => {
           <Suspense
             fallback={
               <VStack  h="100vh" width={{base: '90vw' ,md:'80vw'}}>
-                <Box padding="6" boxShadow="lg" bg="white" h='100%' w='100%'>
+                <Box padding="6" boxShadow="lg"  h='100%' w='100%'>
                   <SkeletonCircle size="10" />
                   <SkeletonText
                     mt="4"
