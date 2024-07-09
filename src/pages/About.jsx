@@ -71,7 +71,7 @@ const About = () => {
       description: 'A brief description of the project. Highlight key features, technologies used, and the impact it had.',
       links: {
         github: 'https://github.com/SIMONKAMAU21/To-do-App.git',
-        live: 'https://to-do-app-git-main-simonkamau21s-projects.vercel.app/',
+        live: 'https://kcb-portal.vercel.app/',
       },
     },
     {
