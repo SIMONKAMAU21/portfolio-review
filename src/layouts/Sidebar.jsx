@@ -49,7 +49,7 @@ const Sidebar = () => {
       { to: '/about', label: 'About', icon: InfoIcon },
       { to: '/services', label: 'Services', icon: SettingsIcon },
       { to: '/contact', label: 'Contact', icon: EmailIcon },
-      { to: '/portfolio', label: 'Portfolio', icon: StarIcon },
+      { to: '/Projects', label: 'Projects', icon: StarIcon },
    ];
 
    const filterItems = navItems.filter(item => item.label.toLowerCase().includes(searchQuery.toLowerCase()));

@@ -65,25 +65,7 @@ const About = () => {
     { icon: FaDocker, label: 'Docker' },
   ];
 
-  const projects = [
-    {
-      title: 'Project 1',
-      description: 'A brief description of the project. Highlight key features, technologies used, and the impact it had.',
-      links: {
-        github: 'https://github.com/SIMONKAMAU21/To-do-App.git',
-        live: 'https://kcb-portal.vercel.app/',
-      },
-    },
-    {
-      title: 'Project 2',
-      description: 'Click to Chat is a convenient tool that allows you to initiate a WhatsApp chat with any phone number without having to save the contact in your phone. This app aims to simplify the process of connecting with people on WhatsApp, especially for one-time conversations.',
-      image:kamau[5],
-      links: {
-        github: 'https://github.com/SIMONKAMAU21/Hiphonic_Client_React.git',
-        live: 'https://click-to-chat.vercel.app/',
-      },
-    },
-  ];
+
   const blogPreviews = [
     {
       image: kamau[0],
@@ -138,34 +120,7 @@ const About = () => {
                 </CardBody>
               </Card>
 
-              <Card w='100%' boxShadow='lg'>
-                <CardHeader>
-                  <Heading sx={headingStyles}>Projects</Heading>
-                </CardHeader>
-                <CardBody>
-                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                    {projects && projects.map((project, index) => (
-                      <Box key={index}>
-                        <Heading size='md'>{project.title}</Heading>
-                      <SimpleGrid columns={{base:1 , md:2}} gap='10px'>
-                      <Image src={project.image} alt='project image' sx={imageStyles}/>
-                        <Image src={project.image} alt='project image' sx={imageStyles}/>
-                      </SimpleGrid>
-                        <Text mt={2}>{project.description}</Text>
-                        {project.links && (
-                          <Flex mt={2} gap='1rem'>
-                            <Button bg='blue.400'>
-                              <Link to={project.links.github} >GitHub</Link>
-                            </Button>
-                            <Button bg='orange.400'><Link to={project.links.live} >Visit</Link></Button>
-                          </Flex>
-                        )}
-                      </Box>
-                    ))}
-                  </SimpleGrid>
-                </CardBody>
-              </Card>
-
+           
               <Divider />
 
               <Card w='100%' boxShadow='lg'>

@@ -12,12 +12,13 @@ import {
   Text,
   Skeleton, SkeletonCircle, SkeletonText 
 } from "@chakra-ui/react";
+// import Projects from "../pages/Portfolio";
 
 const Home = lazy(() => import("../pages/Home"));
 const About = lazy(() => import("../pages/About"));
 const Service = lazy(() => import("../pages/Service"));
 const Contact = lazy(() => import("../pages/Contact"));
-const Portfolio = lazy(() => import("../pages/Portfolio"));
+const Projects = lazy(() => import("../pages/Portfolio"));
 
 const Maincontent = () => {
   const marginLeft = useBreakpointValue({ base: "0", md: "20%" });
@@ -48,7 +49,7 @@ const Maincontent = () => {
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Service />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/projects" element={<Projects/>} />
             </Routes>
           </Suspense>
         </Box>
