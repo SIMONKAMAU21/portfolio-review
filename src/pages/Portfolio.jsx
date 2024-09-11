@@ -22,11 +22,11 @@ const Projects = () => {
   };
 
   const imageStyles = {
-    w: '90%',
-    h: '350px',
+    // w: '90%',
+    // h: '350px',
     objectFit: 'cover',
     borderRadius: 'md',
-    _hover: { transform: 'scale(2.00)', transition: 'transform 0.3s ease' },
+    _hover: { transform: 'scale(1.40)', transition: 'transform 0.3s ease' },
   };
 
   const buttonStyles = {
@@ -41,7 +41,7 @@ const Projects = () => {
       description: 'A brief description of the project. Highlight key features, technologies used, and the impact it had.',
       image: kamau[7],
       links: {
-        github: 'https://github.com/SIMONKAMAU21/KCB-portal.git',
+        github: 'https://github.com/SIMONKAMAU21/KCB-portal.gi',
         live: 'https://kcb-portal.vercel.app/',
       },
     },
@@ -55,12 +55,13 @@ const Projects = () => {
       },
     },
   ];
+  const bgGradient = useColorModeValue('linear(to-r, blue.900, orange.700)', 'linear(to-r, orange.400, blue.400)');
 
   return (
     <>
       <Card sx={cardStyles}>
         <CardHeader>
-          <Heading sx={headingStyles}>Projects</Heading>
+          <Heading sx={headingStyles} bgGradient={bgGradient} bgClip="text">Projects</Heading>
         </CardHeader>
         <CardBody>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
