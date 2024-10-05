@@ -1,4 +1,3 @@
-// src/components/ThreeDHome.js
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Text, Image, Plane } from '@react-three/drei';
@@ -26,12 +25,10 @@ const ThreeDHome = () => {
         <directionalLight position={[5, 5, 5]} intensity={1} />
         
         <RotatingGroup>
-          {/* Background */}
           <Plane args={[20, 20]} position={[0, 0, -10]} rotation={[-Math.PI / 2, 0, 0]}>
             <meshStandardMaterial color="#333" />
           </Plane>
           
-          {/* Simon Kamau Text */}
           <Text
             position={[0, 1, 0]}
             fontSize={1}

@@ -6,6 +6,9 @@ import simo1 from '../../src/assets/simo1.jpeg'
 import inbox from '../../src/assets/inbox.png'
 import intro from '../../src/assets/intro.png'
 import dashbord from '../../src/assets/dashbord.png'
+import success from '../../src/assets/success.png'
+import admin from '../../src/assets/admin.png'
+
 
 
 
@@ -21,6 +24,6 @@ export const localImages=()=>{
       project1,
       inbox,
       intro,
-      dashbord
+      dashbord,success,admin
    ]
 }
