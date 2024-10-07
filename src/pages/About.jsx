@@ -140,7 +140,7 @@ const About = () => {
           </TabPanel>
           <TabPanel>
             <Images />
-            <Card w='100%' boxShadow='lg'>
+            {/* <Card w='100%' boxShadow='lg'>
               <CardHeader>
                 <Text>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate expedita ipsam cumque, esse fugit assumenda a ullam ut veritatis quod itaque unde ad quo sit magni. Esse consequatur labore repellat?
@@ -150,7 +150,7 @@ const About = () => {
                 <MotionImage src={kamau[2]} alt='image 5' sx={imageStyles} />
               </CardBody>
               <CardFooter />
-            </Card>
+            </Card> */}
           </TabPanel>
         </TabPanels>
       </Tabs>

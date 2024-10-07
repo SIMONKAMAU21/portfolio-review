@@ -27,7 +27,7 @@ const Home = () => {
     navigate('/contact');
   };
 
-  const cvLink = "https://drive.google.com/file/d/1ECkv6VOwyWoHjGakvhHcyGfJ9vtO-zYP/view?usp=drive_link";
+  const cvLink = "https://docs.google.com/document/d/10SPM08_9NXfU4WEXKthVnILQkUjgIsxNGmFshooup3A/edit?usp=drive_link";
 
   return (
     <Box

@@ -19,7 +19,7 @@ export const localImages=()=>{
       graduation,
       simo1,
       // simo2,
-      jahnet,
+      // jahnet,
       family,
       project1,
       inbox,
