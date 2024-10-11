@@ -83,7 +83,7 @@ const Projects = () => {
       title: "click to chat",
       description:
         "Click to Chat is a convenient tool that allows you to initiate a WhatsApp chat with any phone number without having to save the contact in your phone. This app aims to simplify the process of connecting with people on WhatsApp, especially for one-time conversations.",
-      image: kamau[4],
+      image: kamau[3],
       links: {
         github: "https://github.com/SIMONKAMAU21/click-to-chat.git",
         live: "https://click-to-chat.vercel.app/",
