@@ -3,6 +3,7 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import simon from '../assets/simo.jpg'
+
 const Navbar = () => {
    const navigate = useNavigate()
    const { colorMode, toggleColorMode } = useColorMode()
@@ -56,9 +57,6 @@ const Navbar = () => {
             <Avatar name='simon kamau gatuma' src={simon} objectFit='cover' bg={theme.colors.accent.light}>
                <AvatarBadge bg='teal' boxSize={{base:"30px", md:'1.2em'}} />
             </Avatar>
-            <Button display ={{base:'none',md:"block"}}bg={theme.colors.accent.light} color={textStyles.color} onClick={handleLogout}>
-               Logout
-            </Button>
             <IconButton
                aria-label='Toggle color mode'
                icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}

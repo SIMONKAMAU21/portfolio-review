@@ -49,7 +49,7 @@ const services = [
 
 const Service = () => {
   const { colorMode } = useColorMode();
-  const cardBg = useColorModeValue('white', 'gray.700');
+  const cardBg = useColorModeValue('gray.100', 'gray.700');
   const textColor = useColorModeValue('blue.600', 'orange.400');
 
   return (
