@@ -25,7 +25,7 @@ const Maincontent = () => {
       <Navbar />
       <HStack align="start" spacing={0} mt="60px">
         <Sidebar />
-        <Box flex="2" p={{base:1,md:4}} ml={marginLeft} w="100%" overflow="hidden">
+        <Box flex="2"   p={{base:1,md:4}} ml={marginLeft} w="100%" overflow="hidden">
           <Suspense
             fallback={
               <VStack  h="100vh" width={{base: '90vw' ,md:'80vw'}}>

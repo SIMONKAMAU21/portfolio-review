@@ -29,7 +29,7 @@ const Projects = () => {
 
   const cardStyles = {
     boxShadow: "lg",
-    p: { base: 1, md: 6 },
+    p: { base: 1, md: 4 },
     bg: useColorModeValue("gray.50", "gray.800"),
     borderRadius: "md",
   };
@@ -83,7 +83,7 @@ const Projects = () => {
       title: "click to chat",
       description:
         "Click to Chat is a convenient tool that allows you to initiate a WhatsApp chat with any phone number without having to save the contact in your phone. This app aims to simplify the process of connecting with people on WhatsApp, especially for one-time conversations.",
-      image: kamau[3],
+      image: kamau[4],
       links: {
         github: "https://github.com/SIMONKAMAU21/click-to-chat.git",
         live: "https://click-to-chat.vercel.app/",
@@ -105,7 +105,7 @@ const Projects = () => {
           </Heading>
         </CardHeader>
         <CardBody>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+          <SimpleGrid columns={[1,1,2]} spacing={8}>
             {projects &&
               projects.map((project, index) => (
                 <Box

@@ -90,7 +90,9 @@ const About = () => {
     },
   ];
   const cardStyle = {
+    // border:"1px solid",
     backgroundColor: colorMode === "dark" ? "#2D3748" : "gray.100",
+    borderBottom: colorMode === "light"?"green" :"red"
   };
   return (
     <Box h="100vh" w={{ base: "100vw", md: "80vw" }} overflowY="auto">
@@ -110,7 +112,7 @@ const About = () => {
                   transition={{ duration: 2 }}
                 >
                   <Card
-                    bg={colorMode === "dark" ? "" : "gray.100"}
+                    sx={cardStyle}
                     w={{ base: "100%", md: "90%" }}
                     boxShadow="lg"
                   >
@@ -124,7 +126,7 @@ const About = () => {
                         gap="10px"
                       >
                         <MotionImage
-                          src={simon}
+                          src={kamau[2]}
                           alt="Simon Kamau"
                           sx={imageStyles}
                         />
@@ -133,6 +135,7 @@ const About = () => {
                           animate={{ opacity: 1, x: 10, y: 0.5 }}
                           transition={{ duration: 3 }}
                           fontSize="lg"
+                          fontWeight={"bold"}
                         >
                           Hi, I'm Simon Kamau, a passionate Full Stack Developer
                           with expertise in creating interactive web
@@ -164,7 +167,7 @@ const About = () => {
                       <Heading sx={headingStyles}>Skills</Heading>
                     </CardHeader>
                     <CardBody>
-                      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+                      <SimpleGrid columns={[1,2]} spacing={10}>
                         {skills.map((skill, index) => (
                           <Flex
                             key={index}

@@ -8,7 +8,7 @@ import intro from '../../src/assets/intro.png'
 import dashbord from '../../src/assets/dashbord.png'
 import success from '../../src/assets/success.png'
 import admin from '../../src/assets/admin.png'
-
+import simo2 from '../../src/assets/simo.png'
 
 
 
@@ -18,7 +18,7 @@ export const localImages=()=>{
    return[
       graduation,
       simo1,
-      // simo2,
+      simo2,
       // jahnet,
       family,
       project1,

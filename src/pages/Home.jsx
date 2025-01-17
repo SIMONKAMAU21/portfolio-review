@@ -11,7 +11,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import simon from '../assets/simo.jpg';
+import simon from '../assets/simo.png';
 import { useNavigate } from 'react-router-dom';
 
 const MotionBox = motion(Box);
