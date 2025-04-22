@@ -1,7 +1,7 @@
 import graduation from '../../src/assets/graduation.jpg'
 import jahnet from '../../src/assets/jahnet.jpg'
 import family from '../../src/assets/family.jpg'
-import project1 from '../../src/assets/Screenshot (6).png'
+import project1 from '../../src/assets/click.png'
 import simo1 from '../../src/assets/simo1.jpeg'
 import inbox from '../../src/assets/inbox.png'
 import intro from '../../src/assets/intro.png'

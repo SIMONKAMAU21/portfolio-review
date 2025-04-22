@@ -1,33 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Box, Image, Spinner, Modal, ModalOverlay, ModalContent, ModalBody, useDisclosure } from '@chakra-ui/react';
-import { localImages } from '../../utils/imageUtils';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import {
+  Box,
+  Image,
+  Spinner,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { localImages } from "../../utils/imageUtils";
 
 const Images = () => {
-  const [userData, setUserData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const responses = await Promise.all([
-          axios.get('https://picsum.photos/200/300?random=1'),
-          axios.get('https://picsum.photos/200/300?random=2'),
-          axios.get('https://picsum.photos/200/300?random=3'),
-          axios.get('https://picsum.photos/200/300?random=4'),
-          axios.get('https://picsum.photos/200/300?random=5'),
-        ]);
-        setUserData(responses.map(response => response.request.responseURL));
-      } catch (error) {
-        console.log('error', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchImages();
-  }, []);
 
   const handleClick = (src) => {
     setSelectedImage(src);
@@ -39,53 +26,53 @@ const Images = () => {
   return (
     <Box>
       <Box
-        display='flex'
-        boxSize='md'
-        p='10px'
-        gap='10px'
-        mt='10px'
-        overflow='auto'
-        w='99%'
-        justifyContent='space-around'
-        boxShadow='5px 0px 5px 0px rgba(0,0,0,0.25)'
+        display="flex"
+        boxSize="md"
+        p="10px"
+        gap="10px"
+        mt="10px"
+        overflow="auto"
+        w="99%"
+        justifyContent="space-around"
+        boxShadow="5px 0px 5px 0px rgba(0,0,0,0.25)"
       >
-        {loading ? (
-          <Spinner size='xl' thickness='4px' color='blue.500' emptyColor='gray.200' />
-        ) : (
-          <>
-            {simon.map((src, index) => (
-              <Image
-                key={`local-${index}`}
-                src={src}
-                alt={`Local ${index}`}
-                boxSize='400px'
-                objectFit='cover'
-                borderRadius='md'
-                onClick={() => handleClick(src)}
-                cursor='pointer'
-              />
-            ))}
-            {userData.map((url, index) => (
-              <Image
-                key={`api-${index}`}
-                src={url}
-                alt={`Random ${index}`}
-                boxSize='400px'
-                objectFit='cover'
-                borderRadius='md'
-                onClick={() => handleClick(url)}
-                cursor='pointer'
-              />
-            ))}
-          </>
-        )}
+        <>
+          {simon.map((src, index) => (
+            <Image
+              key={`local-${index}`}
+              src={src}
+              alt={`Local ${index}`}
+              boxSize="400px"
+              objectFit="cover"
+              borderRadius="md"
+              onClick={() => handleClick(src)}
+              cursor="pointer"
+            />
+          ))}
+        </>
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose} size="sm">
-        <ModalOverlay bg='blackAlpha.700' />
-        <ModalContent bg='transparent' boxShadow='none'>
-          <ModalBody p={0} display='flex' justifyContent='center' alignItems='center'>
-            {selectedImage && <Image src={selectedImage} alt='Selected'  />}
+        <ModalOverlay bg="blackAlpha.700" />
+        <ModalContent
+          position="absolute"
+          bottom={{ base: "0" }}
+          // left={{ base: "0", md: "70%" }}
+          // right="0"
+          m="auto"
+          borderTopRadius="xl"
+          maxW={{ base: "80%", md: "50%" }}
+          h={{ base: "60%", md: "70%" }}
+        >
+          <ModalBody
+            p={0}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            {selectedImage && (
+              <Image h={{ base: "100%" }} src={selectedImage} alt="Selected" />
+            )}
           </ModalBody>
         </ModalContent>
       </Modal>
