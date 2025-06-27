@@ -37,12 +37,45 @@ import {
 } from "react-icons/fa";
 import simon from "../assets/simo.jpg";
 import { localImages } from "../utils/imageUtils";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 const MotionText = motion(Text);
 
 const About = () => {
+  useGSAP(()=>{
+gsap.from('#skills,#about-card',{
+  y:-0,
+  yoyo:true,
+  width:10,
+  height:50,
+  rotate:360,
+  // repeat:-1,
+  duration:3,
+  ease:"power1.inOut"
+})
+gsap.from("#skill-item",{
+  x:250,
+  duration:4,
+  yoyo:true,
+  // repeat:-1,
+  rotate:240,
+  ease:"bounce"
+})
+gsap.from("#skill-text",{
+  y:250,
+  duration:5,
+  width:0,
+  height:0,
+  yoyo:true,
+  // repeat:-1,
+  rotate:360,
+  ease:"circ.inOut"
+
+})
+  },[])
   const { colorMode } = useColorMode();
 
   const grey = useColorModeValue("blue.400", "orange.400");
@@ -112,6 +145,7 @@ const About = () => {
                   transition={{ duration: 2 }}
                 >
                   <Card
+                  id="about-card"
                     sx={cardStyle}
                     w={{ base: "100%", md: "90%" }}
                     boxShadow="lg"
@@ -126,11 +160,13 @@ const About = () => {
                         gap="10px"
                       >
                         <MotionImage
+                        id="about-image"
                           src={kamau[2]}
                           alt="Simon Kamau"
                           sx={imageStyles}
                         />
-                        <MotionText
+                        <Box
+                        id="about-text"
                           initial={{ opacity: 0, x: -20, y: -50 }}
                           animate={{ opacity: 1, x: 10, y: 0.5 }}
                           transition={{ duration: 3 }}
@@ -145,14 +181,15 @@ const About = () => {
                           visually appealing. My journey in software development
                           has equipped me with a diverse set of skills and the
                           ability to adapt to new technologies quickly.
-                        </MotionText>
+                        </Box>
                       </Flex>
                     </CardBody>
                   </Card>
                 </MotionBox>
 
-                <MotionBox
+                <Box
                   h="100%"
+                  id="skills"
                   initial={{ opacity: 0, y: -60 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 4 }}
@@ -171,18 +208,19 @@ const About = () => {
                         {skills.map((skill, index) => (
                           <Flex
                             key={index}
+                            id="skill-item"
                             p="10px"
                             alignItems="center"
                             gap="1rem"
                           >
-                            <Icon color={grey} as={skill.icon} boxSize={6} />
-                            <Text>{skill.label}</Text>
+                            <Icon id="skill-text" color={grey} as={skill.icon} boxSize={6} />
+                            <Text >{skill.label}</Text>
                           </Flex>
                         ))}
                       </SimpleGrid>
                     </CardBody>
                   </Card>
-                </MotionBox>
+                </Box>
               </SimpleGrid>
 
               <Divider />
