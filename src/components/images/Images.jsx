@@ -33,6 +33,8 @@ const Images = () => {
         mt="10px"
         overflow="auto"
         w="99%"
+        h="100%"
+        flexWrap="wrap"
         justifyContent="space-around"
         boxShadow="5px 0px 5px 0px rgba(0,0,0,0.25)"
       >

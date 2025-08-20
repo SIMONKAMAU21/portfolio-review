@@ -10,15 +10,18 @@ import {
   Link,
   SimpleGrid,
   Text,
+  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { localImages } from "../utils/imageUtils";
+import { color } from "framer-motion";
 
 const Projects = () => {
   const kamau = localImages();
   const primaryColor = useColorModeValue("blue.400", "orange.400");
   const secondaryColor = useColorModeValue("orange.400", "blue.400");
+  const { colorMode } = useColorMode();
 
   const headingStyles = {
     fontSize: { base: "24px", md: "28px", lg: "32px" },
@@ -29,9 +32,13 @@ const Projects = () => {
 
   const cardStyles = {
     boxShadow: "lg",
-    p: { base: 1, md: 4 },
-    bg: useColorModeValue("gray.50", "gray.800"),
+    p: { base: 0, md: 4 },
+    // bg:"red",
+    // bg: useColorModeValue("gray.200", "gray.800"),
     borderRadius: "md",
+    w: { base: "100%", md: "50vw" },
+    h: { base: "calc(100vh - 50px)", md: "calc(100vh - 80px)" },
+    overflow: "scroll",
   };
 
   const imageStyles = {
@@ -45,6 +52,8 @@ const Projects = () => {
   const buttonStyles = {
     bg: primaryColor,
     color: "white",
+    borderRadius: "3xl",
+    w: "100%",
     _hover: { bg: secondaryColor },
   };
 
@@ -89,7 +98,6 @@ const Projects = () => {
         live: "https://click-to-chat.vercel.app/",
       },
     },
-   
   ];
   const bgGradient = useColorModeValue(
     "linear(to-r, blue.900, orange.700)",
@@ -97,23 +105,30 @@ const Projects = () => {
   );
 
   return (
-    <>
-      <Card sx={cardStyles}>
+    <Box  w="100%" h="100vh">
+      <Card
+        sx={{
+          ...cardStyles,
+          scrollbarWidth: "none",
+          "&::-webkit-scrollbar": { display: "none" },
+        }}
+      >
         <CardHeader>
           <Heading sx={headingStyles} bgGradient={bgGradient} bgClip="text">
             Projects
           </Heading>
         </CardHeader>
         <CardBody>
-          <SimpleGrid columns={[1,1,2]} spacing={8}>
+          <SimpleGrid columns={[1, 1, 2]} spacing={8}>
             {projects &&
               projects.map((project, index) => (
                 <Box
                   key={index}
-                  w={{ base: "100%" }}
+                  // w={{ base: "100%" }}
                   p={{ base: "10px" }}
                   borderWidth="1px"
-                  borderRadius="md"
+                  borderRadius="xl"
+                  bg={colorMode === "light" ? "gray.100" : "gray.800"}
                 >
                   <Heading size="md" mb={4}>
                     {project.title}
@@ -147,7 +162,7 @@ const Projects = () => {
           </SimpleGrid>
         </CardBody>
       </Card>
-    </>
+    </Box>
   );
 };
 

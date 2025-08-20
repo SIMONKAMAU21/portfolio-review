@@ -22,7 +22,7 @@ const MotionImage = motion(Image);
 const Home = () => {
   useGSAP(() => {
     gsap.to("#home", {
-      x: 250,
+      x: 50,
       duration: 2,
       ease: "power2.inOut",
       repeat: -1,
@@ -93,11 +93,11 @@ const Home = () => {
             applications and experiences on the web.
           </Text>
           <HStack spacing="20px" mt={4}>
-            <Button bg={button} border="1px solid gray" onClick={handleContact}>
+            <Button w={"50%"} borderRadius={"3xl"} bg={button} border="1px solid gray" onClick={handleContact}>
               Contact
             </Button>
             <a href={cvLink} download>
-              <Button bg="none" border="1px solid gray">
+              <Button borderRadius={"3xl"} bg="none" border="1px solid gray">
                 Download CV
               </Button>
             </a>

@@ -45,37 +45,36 @@ const MotionImage = motion(Image);
 const MotionText = motion(Text);
 
 const About = () => {
-  useGSAP(()=>{
-gsap.from('#skills,#about-card',{
-  y:-0,
-  yoyo:true,
-  width:10,
-  height:50,
-  rotate:360,
-  // repeat:-1,
-  duration:3,
-  ease:"power1.inOut"
-})
-gsap.from("#skill-item",{
-  x:250,
-  duration:4,
-  yoyo:true,
-  // repeat:-1,
-  rotate:240,
-  ease:"bounce"
-})
-gsap.from("#skill-text",{
-  y:250,
-  duration:5,
-  width:0,
-  height:0,
-  yoyo:true,
-  // repeat:-1,
-  rotate:360,
-  ease:"circ.inOut"
-
-})
-  },[])
+  useGSAP(() => {
+    gsap.from("#skills,#about-card", {
+      y: -0,
+      yoyo: true,
+      width: 10,
+      height: 50,
+      rotate: 360,
+      // repeat:-1,
+      duration: 3,
+      ease: "power1.inOut",
+    });
+    gsap.from("#skill-item", {
+      x: 250,
+      duration: 4,
+      yoyo: true,
+      // repeat:-1,
+      rotate: 240,
+      ease: "bounce",
+    });
+    gsap.from("#skill-text", {
+      y: 250,
+      duration: 5,
+      width: 0,
+      height: 0,
+      yoyo: true,
+      // repeat:-1,
+      rotate: 360,
+      ease: "circ.inOut",
+    });
+  }, []);
   const { colorMode } = useColorMode();
 
   const grey = useColorModeValue("blue.400", "orange.400");
@@ -87,10 +86,10 @@ gsap.from("#skill-text",{
   };
 
   const imageStyles = {
-    w: { base: "100%", md: "45%" },
-    h: "auto",
+    w: { base: "100%", md: "50%" },
+    h: { base: "50%", md: "35%" },
     objectFit: "cover",
-    borderRadius: "md",
+    borderRadius: "xl",
     whileHover: { scale: 1.05 },
     transition: { duration: 0.3 },
   };
@@ -121,14 +120,40 @@ gsap.from("#skill-text",{
       alt: "Blog 2",
       text: "In this post, I discuss the importance of maintaining a healthy work-life balance as a developer. Balancing the demands of coding and personal life can be challenging, but with the right strategies, it's possible to achieve harmony and prevent burnout.",
     },
+    {
+      image: kamau[1],
+      alt: "Blog 2",
+      text: "In this post, I discuss the importance of maintaining a healthy work-life balance as a developer. Balancing the demands of coding and personal life can be challenging, but with the right strategies, it's possible to achieve harmony and prevent burnout.",
+    },
+    {
+      image: kamau[10],
+      alt: "Blog 2",
+      text: "In this post, I discuss the importance of maintaining a healthy work-life balance as a developer. Balancing the demands of coding and personal life can be challenging, but with the right strategies, it's possible to achieve harmony and prevent burnout.",
+    },
   ];
   const cardStyle = {
     // border:"1px solid",
     backgroundColor: colorMode === "dark" ? "#2D3748" : "gray.100",
-    borderBottom: colorMode === "light"?"green" :"red"
+    borderBottom: colorMode === "light" ? "green" : "white",
   };
   return (
-    <Box h="100vh" w={{ base: "100vw", md: "80vw" }} overflowY="auto">
+    <Box
+      h={{ base: "calc(100vh - 80px)", md: "calc(100vh - 70px)" }}
+      // h={"100vh"}
+      sx={{
+        scrollbarWidth: "none", // For Firefox
+        "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
+      }}
+      w={{ base: "100vw", md: "50vw" }}
+      position={"fixed"}
+      overflowY="auto"
+      bg={colorMode === "dark" ? "#1A202C" : "white"}
+      // bgImage={
+      //   colorMode === "dark"
+      //     ? "none"
+      //     : "url('https://cdn.builder.io/api/v1/image/assets/2c862b2eca824ba8944134157d096d85/0f3cf91cd9e704eeb0148488c21fc06c4b1140ecbe0a65b748a23dc8f9a2926f?apiKey=2c862b2eca824ba8944134157d096d85&')"
+      // }
+    >
       <Tabs isFitted variant="enclosed">
         <TabList mt={{ base: "10px" }}>
           <Tab _selected={{ color: "white", bg: "blue.500" }}>About</Tab>
@@ -137,7 +162,17 @@ gsap.from("#skill-text",{
 
         <TabPanels>
           <TabPanel>
-            <VStack alignItems="center" spacing={6}>
+            <VStack
+              // bg={"green"}
+              position={"relative"}
+              overflow={"scroll"}
+              alignItems="center"
+              spacing={6}
+              sx={{
+                scrollbarWidth: "none", // For Firefox
+                "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
+              }}
+            >
               <SimpleGrid spacing={3} w={"100%"} columns={{ base: 1, md: 2 }}>
                 <MotionBox
                   initial={{ opacity: 0, y: -30 }}
@@ -145,9 +180,9 @@ gsap.from("#skill-text",{
                   transition={{ duration: 2 }}
                 >
                   <Card
-                  id="about-card"
+                    id="about-card"
                     sx={cardStyle}
-                    w={{ base: "100%", md: "90%" }}
+                    w={{ base: "100vw", md: "90%" }}
                     boxShadow="lg"
                   >
                     <CardHeader>
@@ -160,13 +195,13 @@ gsap.from("#skill-text",{
                         gap="10px"
                       >
                         <MotionImage
-                        id="about-image"
+                          id="about-image"
                           src={kamau[2]}
                           alt="Simon Kamau"
                           sx={imageStyles}
                         />
                         <Box
-                        id="about-text"
+                          id="about-text"
                           initial={{ opacity: 0, x: -20, y: -50 }}
                           animate={{ opacity: 1, x: 10, y: 0.5 }}
                           transition={{ duration: 3 }}
@@ -204,7 +239,7 @@ gsap.from("#skill-text",{
                       <Heading sx={headingStyles}>Skills</Heading>
                     </CardHeader>
                     <CardBody>
-                      <SimpleGrid columns={[1,2]} spacing={10}>
+                      <SimpleGrid columns={[1, 2]} spacing={10}>
                         {skills.map((skill, index) => (
                           <Flex
                             key={index}
@@ -213,8 +248,13 @@ gsap.from("#skill-text",{
                             alignItems="center"
                             gap="1rem"
                           >
-                            <Icon id="skill-text" color={grey} as={skill.icon} boxSize={6} />
-                            <Text >{skill.label}</Text>
+                            <Icon
+                              id="skill-text"
+                              color={grey}
+                              as={skill.icon}
+                              boxSize={6}
+                            />
+                            <Text>{skill.label}</Text>
                           </Flex>
                         ))}
                       </SimpleGrid>

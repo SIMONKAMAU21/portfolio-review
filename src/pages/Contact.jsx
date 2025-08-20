@@ -13,6 +13,7 @@ import {
   HStack,
   IconButton,
   Link,
+  useColorMode,
 } from "@chakra-ui/react";
 import emailjs from "@emailjs/browser";
 import { FaFacebook, FaSms, FaWhatsapp } from "react-icons/fa";
@@ -23,6 +24,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const { colorMode } = useColorMode();
 
   const toast = useToast();
 
@@ -74,13 +76,19 @@ const Contact = () => {
   return (
     <>
       <Box
-        w={{ base: "90vw", md: "80vw", lg: "60vw" }}
+        sx={{
+          scrollbarWidth: "none", // For Firefox
+          "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
+        }}
+         w={{ base: "90vw", md: "50vw" }}
+      h={{ base: "calc(90vh - 0px)", md: "calc(80vh - 80px)" }}
         mx="auto"
         p={6}
         mt={4}
         borderWidth={1}
         borderRadius="lg"
         boxShadow="lg"
+        bg={colorMode === "light" ? "white" : "gray.800"}
       >
         <Heading as="h1" size="xl" textAlign="center" mb={6}>
           Contact Me
@@ -148,7 +156,7 @@ const Contact = () => {
               name="message"
             />
           </FormControl>
-          <Button bg="orange.400" size="lg" w="full" type="submit">
+          <Button borderRadius={"3xl"} bg="orange.400" size="lg" w="50%" type="submit">
             Send
           </Button>
         </VStack>
