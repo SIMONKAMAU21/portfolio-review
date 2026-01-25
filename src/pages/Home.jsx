@@ -42,7 +42,7 @@ const Home = () => {
   };
 
   const cvLink =
-    "https://drive.google.com/file/d/1QEa8lQ-XiNAbDNDYjjEX0NXhVTOder2j/view";
+    "/assets/Simon_Kamau_CV.pdf";
 
   return (
     <Box
@@ -96,11 +96,11 @@ const Home = () => {
             <Button w={"50%"} borderRadius={"3xl"} bg={button} border="1px solid gray" onClick={handleContact}>
               Contact
             </Button>
-            <a href={cvLink} download>
-              <Button borderRadius={"3xl"} bg="none" border="1px solid gray">
-                Download CV
-              </Button>
-            </a>
+           <a href={cvLink} download="Simon_Kamau_CV.pdf">
+  <Button borderRadius={"3xl"} bg="none" border="1px solid gray">
+    Download CV
+  </Button>
+</a>
           </HStack>
         </VStack>
       </MotionBox>

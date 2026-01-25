@@ -10,7 +10,7 @@ import success from "../../src/assets/success.png";
 import admin from "../../src/assets/admin.png";
 import simo2 from "../../src/assets/simo.png";
 import dots from "../../src/assets/dots.png";
-
+import kentech from "../../src/assets/kentech.png";
 export const localImages = () => {
   return [
     graduation,
@@ -25,5 +25,6 @@ export const localImages = () => {
     success,
     admin,
     dots,
+    kentech,
   ];
 };

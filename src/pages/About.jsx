@@ -120,16 +120,16 @@ const About = () => {
       alt: "Blog 2",
       text: "In this post, I discuss the importance of maintaining a healthy work-life balance as a developer. Balancing the demands of coding and personal life can be challenging, but with the right strategies, it's possible to achieve harmony and prevent burnout.",
     },
-    {
-      image: kamau[1],
-      alt: "Blog 2",
-      text: "In this post, I discuss the importance of maintaining a healthy work-life balance as a developer. Balancing the demands of coding and personal life can be challenging, but with the right strategies, it's possible to achieve harmony and prevent burnout.",
-    },
-    {
-      image: kamau[10],
-      alt: "Blog 2",
-      text: "In this post, I discuss the importance of maintaining a healthy work-life balance as a developer. Balancing the demands of coding and personal life can be challenging, but with the right strategies, it's possible to achieve harmony and prevent burnout.",
-    },
+    // {
+    //   image: kamau[1],
+    //   alt: "Blog 2",
+    //   text: "In this post, I discuss the importance of maintaining a healthy work-life balance as a developer. Balancing the demands of coding and personal life can be challenging, but with the right strategies, it's possible to achieve harmony and prevent burnout.",
+    // },
+    // {
+    //   image: kamau[10],
+    //   alt: "Blog 2",
+    //   text: "In this post, I discuss the importance of maintaining a healthy work-life balance as a developer. Balancing the demands of coding and personal life can be challenging, but with the right strategies, it's possible to achieve harmony and prevent burnout.",
+    // },
   ];
   const cardStyle = {
     // border:"1px solid",
@@ -144,7 +144,7 @@ const About = () => {
         scrollbarWidth: "none", // For Firefox
         "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
       }}
-      w={{ base: "100vw", md: "50vw" }}
+      w={{ base: "100vw", md: "60vw" }}
       position={"fixed"}
       overflowY="auto"
       bg={colorMode === "dark" ? "#1A202C" : "white"}
@@ -173,56 +173,8 @@ const About = () => {
                 "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
               }}
             >
-              <SimpleGrid spacing={3} w={"100%"} columns={{ base: 1, md: 2 }}>
-                <MotionBox
-                  initial={{ opacity: 0, y: -30 }}
-                  animate={{ opacity: 1, y: 0.5 }}
-                  transition={{ duration: 2 }}
-                >
-                  <Card
-                    id="about-card"
-                    sx={cardStyle}
-                    w={{ base: "100vw", md: "90%" }}
-                    boxShadow="lg"
-                  >
-                    <CardHeader>
-                      <Heading sx={headingStyles}>About Me</Heading>
-                    </CardHeader>
-                    <CardBody>
-                      <Flex
-                        flexDirection={{ base: "column", md: "row" }}
-                        alignItems="center"
-                        gap="10px"
-                      >
-                        <MotionImage
-                          id="about-image"
-                          src={kamau[2]}
-                          alt="Simon Kamau"
-                          sx={imageStyles}
-                        />
-                        <Box
-                          id="about-text"
-                          initial={{ opacity: 0, x: -20, y: -50 }}
-                          animate={{ opacity: 1, x: 10, y: 0.5 }}
-                          transition={{ duration: 3 }}
-                          fontSize="lg"
-                          fontWeight={"bold"}
-                        >
-                          Hi, I'm Simon Kamau, a passionate Full Stack Developer
-                          with expertise in creating interactive web
-                          applications. With a strong background in both
-                          front-end and back-end development, I enjoy building
-                          solutions that are not only functional but also
-                          visually appealing. My journey in software development
-                          has equipped me with a diverse set of skills and the
-                          ability to adapt to new technologies quickly.
-                        </Box>
-                      </Flex>
-                    </CardBody>
-                  </Card>
-                </MotionBox>
-
-                <Box
+              <SimpleGrid spacing={3} gap={2} border={2} w={"100%"} columns={{ base: 1, md: 2 }}>
+                 <Box
                   h="100%"
                   id="skills"
                   initial={{ opacity: 0, y: -60 }}
@@ -261,6 +213,56 @@ const About = () => {
                     </CardBody>
                   </Card>
                 </Box>
+                <MotionBox
+                  initial={{ opacity: 0, y: -30 }}
+                  animate={{ opacity: 1, y: 0.5 }}
+                  transition={{ duration: 2 }}
+                >
+                  <Card
+                    id="about-card"
+                    sx={cardStyle}
+                    w={{ base: "100vw", md: "95%" }}
+                    boxShadow="lg"
+                  >
+                    <CardHeader>
+                      <Heading sx={headingStyles}>About Me</Heading>
+                    </CardHeader>
+                    <CardBody>
+                      <Flex
+                        flexDirection={{ base: "column", md: "row" }}
+                        alignItems="center"
+                        gap="10px"
+                      >
+                        <MotionImage
+                          id="about-image"
+                          src={kamau[2]}
+                          alt="Simon Kamau"
+                          sx={imageStyles}
+                        />
+                        <Box
+                          id="about-text"
+                          initial={{ opacity: 0, x: -20, y: -50 }}
+                          animate={{ opacity: 1, x: 10, y: 0.5 }}
+                          transition={{ duration: 3 }}
+                          fontSize="lg"
+                          w={{base:''}}
+                          fontWeight={"semibold"}
+                        >
+                          Hi, I'm Simon Kamau, a passionate Full Stack Developer
+                          with expertise in creating interactive web
+                          applications. With a strong background in both
+                          front-end and back-end development, I enjoy building
+                          solutions that are not only functional but also
+                          visually appealing. My journey in software development
+                          has equipped me with a diverse set of skills and the
+                          ability to adapt to new technologies quickly.
+                        </Box>
+                      </Flex>
+                    </CardBody>
+                  </Card>
+                </MotionBox>
+
+               
               </SimpleGrid>
 
               <Divider />

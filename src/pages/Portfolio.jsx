@@ -32,11 +32,11 @@ const Projects = () => {
 
   const cardStyles = {
     boxShadow: "lg",
-    p: { base: 0, md: 4 },
+    // p: { base: 0, md: 4 },
     // bg:"red",
     // bg: useColorModeValue("gray.200", "gray.800"),
     borderRadius: "md",
-    w: { base: "100%", md: "50vw" },
+    // w: { base: "100%", md: "90%" },
     h: { base: "calc(100vh - 50px)", md: "calc(100vh - 80px)" },
     overflow: "scroll",
   };
@@ -91,11 +91,21 @@ const Projects = () => {
     {
       title: "click to chat",
       description:
-        "Click to Chat is a convenient tool that allows you to initiate a WhatsApp chat with any phone number without having to save the contact in your phone. This app aims to simplify the process of connecting with people on WhatsApp, especially for one-time conversations.",
+        "Click to Chat is a convenient tool that allows you to initiate a WhatsApp chat with any phone number without having to save the contact in your phone. This app aims to simplify the process of connecting with people on WhatsApp, especially for one-time conversations..",
       image: kamau[4],
       links: {
         github: "https://github.com/SIMONKAMAU21/click-to-chat.git",
         live: "https://click-to-chat.vercel.app/",
+      },
+    },
+      {
+      title: "Kentech solutions",
+      description:
+        "Kentech solution is a service that helps graphic designers and businesses create stunning visuals and branding materials. From logos to marketing collateral, Kentech solutions offers a range of design services to meet your needs. Currently is still on development phase.",
+      image: kamau[11],
+      links: {
+        // github: "https://github.com/SIMONKAMAU21/click-to-chat.git",
+        live: "https://kentech-web-v1.vercel.app/",
       },
     },
   ];
@@ -119,13 +129,16 @@ const Projects = () => {
           </Heading>
         </CardHeader>
         <CardBody>
-          <SimpleGrid columns={[1, 1, 2]} spacing={8}>
+          <SimpleGrid columns={[1, 1, 2]}  w={'100%'}>
             {projects &&
               projects.map((project, index) => (
                 <Box
                   key={index}
-                  // w={{ base: "100%" }}
+                  w={{ base: "100%" }}
                   p={{ base: "10px" }}
+                  h={{base:'90%'}}
+                  overflowY={'scroll'}
+                  overscroll={'auto'}
                   borderWidth="1px"
                   borderRadius="xl"
                   bg={colorMode === "light" ? "gray.100" : "gray.800"}
@@ -140,7 +153,7 @@ const Projects = () => {
                   />
                   <Text mt={4}>{project.description}</Text>
                   {project.links && (
-                    <Flex mt={4} gap={4}>
+                    <Flex  mt={4} gap={4}>
                       <Button
                         as="a"
                         href={project.links.github}

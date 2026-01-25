@@ -21,7 +21,7 @@ const Contact = lazy(() => import("../pages/Contact"));
 const Projects = lazy(() => import("../pages/Portfolio"));
 
 const Maincontent = () => {
-  const marginLeft = useBreakpointValue({ base: "0vw", md: "15vw" });
+  const marginLeft = useBreakpointValue({ base: "0vw", md: "10vw" });
   const { colorMode } = useColorMode();
 
   return (

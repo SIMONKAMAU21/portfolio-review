@@ -31,11 +31,11 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const displayMode = useBreakpointValue({ base: "none", md: "block" });
-  const sidebarWidth = useBreakpointValue({ base: "70%", md: "10%" });
+  const sidebarWidth = useBreakpointValue({ base: "70%", md: "30%", lg: "20%" });
   const navigationStyles = {
     position: "fixed",
     top: 0,
-    left: {base:"0",md:"15%"},
+    left: {base:"0",md:"0%"},
     height: "100vh",
     marginTop: "60px",
     width: sidebarWidth,
@@ -68,7 +68,7 @@ const Sidebar = () => {
 
   const navItems = [
     { to: "/", label: "Home", icon: FaHome },
-    { to: "/about", label: "About", icon: InfoIcon },
+    { to: "/about", label: "Skills", icon: InfoIcon },
     { to: "/services", label: "Services", icon: SettingsIcon },
     { to: "/contact", label: "Contact", icon: EmailIcon },
     { to: "/Projects", label: "Projects", icon: StarIcon },
