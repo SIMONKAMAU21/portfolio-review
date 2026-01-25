@@ -41,8 +41,8 @@ const Home = () => {
     navigate("/contact");
   };
 
-  const cvLink =
-    "/assets/Simon_Kamau_CV.pdf";
+const cvLink =
+  "https://drive.google.com/uc?export=download&id=1VZD5vKQ_oonPY-SOsuD64KsO1tXEzbqv";
 
   return (
     <Box
