@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Heading,
@@ -10,7 +9,6 @@ import {
   Icon,
   useColorMode,
   useColorModeValue,
-  HStack,
 } from "@chakra-ui/react";
 import {
   FaCode,
@@ -53,17 +51,18 @@ const services = [
     description: "Providing cloud infrastructure and services.",
     icon: FaCloud,
   },
-
 ];
 
 const Service = () => {
   const { colorMode } = useColorMode();
   const cardBg = useColorModeValue("gray.100", "gray.700");
   const textColor = useColorModeValue("blue.600", "orange.400");
+  const isLight = colorMode === "light";
 
   return (
     <Box
       p="5px"
+      fontFamily="'DM Sans', sans-serif"
       // bg={"red"}
       w={{ base: "90vw", md: "50vw" }}
       h={{ base: "calc(100vh - 80px)", md: "calc(100vh - 80px)" }}
@@ -74,7 +73,12 @@ const Service = () => {
         "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
       }}
     >
-      <Heading as="h1" mb={8} textAlign="center" color={textColor}>
+      <Heading
+        as="h1"
+        mb={8}
+        textAlign="center"
+        color={isLight ? "white" : "orange.400"}
+      >
         My Services
       </Heading>
       <SimpleGrid flexWrap={"wrap"} columns={[1, 2, 2]} spacing={6}>

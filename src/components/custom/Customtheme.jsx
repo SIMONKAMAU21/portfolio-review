@@ -15,7 +15,7 @@ const Customtheme = extendTheme({
       900: '#1a202c',
     },
     primary: {
-      light: 'blue.400',
+      light: '#172876',
       dark: 'gray.800',
     },
     accent: {

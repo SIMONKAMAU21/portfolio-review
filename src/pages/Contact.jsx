@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -43,10 +43,10 @@ const Contact = () => {
         "service_8vommni",
         "template_9oiz16i",
         e.target,
-        "bMgeqI01rOsFNk7YB"
+        "bMgeqI01rOsFNk7YB",
       )
       .then(
-        (result) => {
+        () => {
           toast({
             title: "Message Sent.",
             description:
@@ -61,7 +61,7 @@ const Contact = () => {
             message: "",
           });
         },
-        (error) => {
+        () => {
           toast({
             title: "An error occurred.",
             description: "Unable to send message. Please try again later.",
@@ -69,7 +69,7 @@ const Contact = () => {
             duration: 5000,
             isClosable: true,
           });
-        }
+        },
       );
   };
 
@@ -80,20 +80,23 @@ const Contact = () => {
           scrollbarWidth: "none", // For Firefox
           "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
         }}
-         w={{ base: "90vw", md: "50vw" }}
-      h={{ base: "calc(90vh - 0px)", md: "calc(80vh - 80px)" }}
+        w={{ base: "90vw", md: "50vw" }}
+        // h={"100%"}
+        // h={{ base: "calc(90vh - 0px)", md: "calc(80vh - 80px)" }}
         mx="auto"
-        p={6}
+        p={3}
         mt={4}
         borderWidth={1}
         borderRadius="lg"
         boxShadow="lg"
+        overflow={"scroll"}
         bg={colorMode === "light" ? "white" : "gray.800"}
+        fontFamily="'DM Sans', sans-serif"
       >
-        <Heading as="h1" size="xl" textAlign="center" mb={6}>
+        <Heading as="h1" size="lg" textAlign="center" mb={6}>
           Contact Me
         </Heading>
-        <Text fontSize="lg" textAlign="center" mb={6}>
+        <Text fontSize="md" textAlign="center" mb={6}>
           I would love to hear from you! Please fill out the form below to get
           in touch.
         </Text>
@@ -101,6 +104,7 @@ const Contact = () => {
           <HStack spacing={4} mt={6} justifyContent="">
             <Link href="https://wa.me/+254759717794" isExternal>
               <IconButton
+                borderRadius={"full"}
                 icon={<FaWhatsapp />}
                 // aria-label='WhatsApp'
                 colorScheme="whatsapp"
@@ -110,6 +114,7 @@ const Contact = () => {
             <Link href="https://www.facebook.com/simo kamau" isExternal>
               <IconButton
                 icon={<FaFacebook />}
+                borderRadius={"full"}
                 // aria-label='WhatsApp'
                 colorScheme="facebook"
                 size="lg"
@@ -118,6 +123,7 @@ const Contact = () => {
             <Link href="sms:+254759717794" isExternal>
               <IconButton
                 icon={<FaSms />}
+                borderRadius={"full"}
                 aria-label="SMS"
                 colorScheme="teal"
                 size="lg"
@@ -131,6 +137,7 @@ const Contact = () => {
             <Input
               type="text"
               placeholder="Your Name"
+              isRequired
               value={formData.name}
               onChange={handleChange}
               name="name"
@@ -142,6 +149,7 @@ const Contact = () => {
               type="email"
               placeholder="Your Email"
               value={formData.email}
+              isRequired
               onChange={handleChange}
               name="email"
             />
@@ -156,7 +164,14 @@ const Contact = () => {
               name="message"
             />
           </FormControl>
-          <Button borderRadius={"3xl"} bg="orange.400" size="lg" w="50%" type="submit">
+          <Button
+            borderRadius={"3xl"}
+            bg="orange.400"
+            size="lg"
+            w="50%"
+            color={'whitesmoke'}
+            type="submit"
+          >
             Send
           </Button>
         </VStack>

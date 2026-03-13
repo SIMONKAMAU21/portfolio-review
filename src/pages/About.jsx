@@ -1,10 +1,8 @@
-import React from "react";
 import Images from "../components/images/Images";
 import {
   Box,
   Card,
   CardBody,
-  CardFooter,
   CardHeader,
   Flex,
   Heading,
@@ -16,14 +14,9 @@ import {
   Tabs,
   Text,
   VStack,
-  Stack,
   SimpleGrid,
-  Divider,
   Icon,
   useColorModeValue,
-  Button,
-  HStack,
-  useColorMode,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import {
@@ -35,47 +28,44 @@ import {
   FaGit,
   FaDocker,
 } from "react-icons/fa";
-import simon from "../assets/simo.jpg";
 import { localImages } from "../utils/imageUtils";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { useMemo } from "react";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 const MotionImage = motion(Image);
-const MotionText = motion(Text);
+// const MotionText = motion.create(Text);
 
 const About = () => {
-  useGSAP(() => {
-    gsap.from("#skills,#about-card", {
-      y: -0,
-      yoyo: true,
-      width: 10,
-      height: 50,
-      rotate: 360,
-      // repeat:-1,
-      duration: 3,
-      ease: "power1.inOut",
-    });
-    gsap.from("#skill-item", {
-      x: 250,
-      duration: 4,
-      yoyo: true,
-      // repeat:-1,
-      rotate: 240,
-      ease: "bounce",
-    });
-    gsap.from("#skill-text", {
-      y: 250,
-      duration: 5,
-      width: 0,
-      height: 0,
-      yoyo: true,
-      // repeat:-1,
-      rotate: 360,
-      ease: "circ.inOut",
-    });
-  }, []);
-  const { colorMode } = useColorMode();
+  // useGSAP(() => {
+  //   gsap.from("#skills,#about-card", {
+  //     y: -0,
+  //     yoyo: true,
+  //     width: 10,
+  //     height: 50,
+  //     rotate: 360,
+  //     // repeat:-1,
+  //     duration: 3,
+  //     ease: "power1.inOut",
+  //   });
+  //   gsap.from("#skill-item", {
+  //     x: 250,
+  //     duration: 4,
+  //     yoyo: true,
+  //     // repeat:-1,
+  //     rotate: 240,
+  //     ease: "bounce",
+  //   });
+  //   gsap.from("#skill-text", {
+  //     y: 250,
+  //     duration: 5,
+  //     width: 0,
+  //     height: 0,
+  //     yoyo: true,
+  //     // repeat:-1,
+  //     rotate: 360,
+  //     ease: "circ.inOut",
+  //   });
+  // }, []);
 
   const grey = useColorModeValue("blue.400", "orange.400");
 
@@ -94,7 +84,7 @@ const About = () => {
     transition: { duration: 0.3 },
   };
 
-  const kamau = localImages();
+  const kamau = useMemo(()=>  localImages() ,[] ) ;
 
   const skills = [
     { icon: FaJs, label: "JavaScript" },
@@ -133,60 +123,71 @@ const About = () => {
   ];
   const cardStyle = {
     // border:"1px solid",
-    backgroundColor: colorMode === "dark" ? "#2D3748" : "gray.100",
-    borderBottom: colorMode === "light" ? "green" : "white",
+    // backgroundColor: colorMode === "dark" ? "#2D3748" : "gray.100",
+    // borderBottom: colorMode === "light" ? "green" : "white",
   };
   return (
     <Box
-      h={{ base: "calc(100vh - 80px)", md: "calc(100vh - 70px)" }}
-      // h={"100vh"}
       sx={{
         scrollbarWidth: "none", // For Firefox
         "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
       }}
-      w={{ base: "100vw", md: "60vw" }}
-      position={"fixed"}
-      overflowY="auto"
-      bg={colorMode === "dark" ? "#1A202C" : "white"}
-      // bgImage={
-      //   colorMode === "dark"
-      //     ? "none"
-      //     : "url('https://cdn.builder.io/api/v1/image/assets/2c862b2eca824ba8944134157d096d85/0f3cf91cd9e704eeb0148488c21fc06c4b1140ecbe0a65b748a23dc8f9a2926f?apiKey=2c862b2eca824ba8944134157d096d85&')"
-      // }
+      minH="100vh"
+     
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      position="relative"
+      px={{ base: "", md: "10%" }}
+    py={{base:'10%',md:'0%'}}
+      fontFamily="'DM Sans', sans-serif"
     >
-      <Tabs isFitted variant="enclosed">
+      <Tabs mt=" " w="full" isFitted variant={'line'}>
         <TabList mt={{ base: "10px" }}>
-          <Tab _selected={{ color: "white", bg: "blue.500" }}>About</Tab>
-          <Tab _selected={{ color: "white", bg: "blue.500" }}>Images</Tab>
+          <Tab _selected={{ color: "white" }} color={'gray.400'}>About</Tab>
+          <Tab _selected={{ color: "white", }} color={'gray.400'}>Images</Tab>
         </TabList>
 
-        <TabPanels>
+        <TabPanels
+          overflow={"scroll"}
+          h={"90vh"}
+          pb='6'
+          sx={{
+            scrollbarWidth: "none", // For Firefox
+            "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
+          }}
+        >
           <TabPanel>
             <VStack
-              // bg={"green"}
               position={"relative"}
-              overflow={"scroll"}
-              alignItems="center"
+              // overflow={"scroll"}
+              p="3"
+              // display="flex"
+              // alignItems="center"
+              // justifyContent="center"
+              // bg={'red.800'}
+              w="100%"
               spacing={6}
               sx={{
                 scrollbarWidth: "none", // For Firefox
                 "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
               }}
             >
-              <SimpleGrid spacing={3} gap={2} border={2} w={"100%"} columns={{ base: 1, md: 2 }}>
-                 <Box
+              <SimpleGrid
+                spacing={3}
+                gap={2}
+                border={2}
+                // w={"100%"}
+                columns={{ base: 1, md: 1,lg:2 }}
+              >
+                <Box
                   h="100%"
                   id="skills"
                   initial={{ opacity: 0, y: -60 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 4 }}
                 >
-                  <Card
-                    h={"100%"}
-                    sx={cardStyle}
-                    w={{ base: "100%", md: "90%" }}
-                    boxShadow="lg"
-                  >
+                  <Card h={"100%"} w={{ base: "100%", md: "90%" }}>
                     <CardHeader>
                       <Heading sx={headingStyles}>Skills</Heading>
                     </CardHeader>
@@ -221,7 +222,7 @@ const About = () => {
                   <Card
                     id="about-card"
                     sx={cardStyle}
-                    w={{ base: "100vw", md: "95%" }}
+                    // w={{ base: "100vw", md: "95%" }}
                     boxShadow="lg"
                   >
                     <CardHeader>
@@ -244,31 +245,32 @@ const About = () => {
                           initial={{ opacity: 0, x: -20, y: -50 }}
                           animate={{ opacity: 1, x: 10, y: 0.5 }}
                           transition={{ duration: 3 }}
-                          fontSize="lg"
-                          w={{base:''}}
-                          fontWeight={"semibold"}
+                          fontSize="md"
+                          w={{ base: "90%" }}
                         >
-                          Hi, I'm Simon Kamau, a passionate Full Stack Developer
-                          with expertise in creating interactive web
-                          applications. With a strong background in both
-                          front-end and back-end development, I enjoy building
-                          solutions that are not only functional but also
-                          visually appealing. My journey in software development
-                          has equipped me with a diverse set of skills and the
-                          ability to adapt to new technologies quickly.
+                          <Text>
+                            Hi, I'm Simon Kamau, a passionate Full Stack
+                            Developer with expertise in creating interactive web
+                            applications. With a strong background in both
+                            front-end and back-end development, I enjoy building
+                            solutions that are not only functional but also
+                            visually appealing. My journey in software
+                            development has equipped me with a diverse set of
+                            skills and the ability to adapt to new technologies
+                            quickly.
+                          </Text>
                         </Box>
                       </Flex>
                     </CardBody>
                   </Card>
                 </MotionBox>
-
-               
               </SimpleGrid>
 
-              <Divider />
-              <SimpleGrid spacing={3} w={"100%"} columns={{ base: 1, md: 2 }}>
+              {/* <Divider /> */}
+              <SimpleGrid spacing={3} w={"100%"} columns={{ base: 1, md: 1,lg:2 }}>
                 {blogPreviews.map((blog, index) => (
                   <Card
+                  key={index}
                     sx={cardStyle}
                     w={{ base: "100%", md: "90%" }}
                     boxShadow="lg"
@@ -281,13 +283,14 @@ const About = () => {
                       <Flex
                         flexDirection={{ base: "column", md: "row" }}
                         gap="10px"
+                        spacing='2'
                       >
                         <MotionImage
                           src={blog.image}
                           alt={blog.alt}
                           sx={imageStyles}
                         />
-                        <Text fontSize="lg">{blog.text}</Text>
+                        <Text alignItems={'center'} fontSize="md">{blog.text}</Text>
                       </Flex>
                     </CardBody>
                   </Card>

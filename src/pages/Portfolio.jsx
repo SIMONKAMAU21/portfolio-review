@@ -3,178 +3,146 @@ import {
   Button,
   Card,
   CardBody,
-  CardHeader,
-  Flex,
   Heading,
   Image,
-  Link,
   SimpleGrid,
   Text,
-  useColorMode,
+  Stack,
+  HStack,
+  Tag,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React from "react";
 import { localImages } from "../utils/imageUtils";
-import { color } from "framer-motion";
+import { useMemo } from "react";
 
 const Projects = () => {
-  const kamau = localImages();
-  const primaryColor = useColorModeValue("blue.400", "orange.400");
-  const secondaryColor = useColorModeValue("orange.400", "blue.400");
-  const { colorMode } = useColorMode();
+  const images = useMemo(() => localImages(), []);
 
-  const headingStyles = {
-    fontSize: { base: "24px", md: "28px", lg: "32px" },
-    textAlign: "center",
-    w: "100%",
-    mb: 6,
-  };
-
-  const cardStyles = {
-    boxShadow: "lg",
-    // p: { base: 0, md: 4 },
-    // bg:"red",
-    // bg: useColorModeValue("gray.200", "gray.800"),
-    borderRadius: "md",
-    // w: { base: "100%", md: "90%" },
-    h: { base: "calc(100vh - 50px)", md: "calc(100vh - 80px)" },
-    overflow: "scroll",
-  };
-
-  const imageStyles = {
-    // w: '90%',
-    // h: '350px',
-    objectFit: "cover",
-    borderRadius: "md",
-    _hover: { transform: "scale(1.40)", transition: "transform 0.3s ease" },
-  };
-
-  const buttonStyles = {
-    bg: primaryColor,
-    color: "white",
-    borderRadius: "3xl",
-    w: "100%",
-    _hover: { bg: secondaryColor },
-  };
+  const cardBg = useColorModeValue("white", "gray.800");
+  const borderColor = useColorModeValue("gray.200", "gray.700");
+  const primary = useColorModeValue("#172876", "orange.400");
 
   const projects = [
     {
-      title: "simo care",
-      description: `Simo Care is a patient management platform designed to streamline healthcare operations and improve patient care. The platform provides an efficient way for healthcare providers to manage patient records, appointments, and essential medical information, all through a user-friendly interface.
-
-      Key Features:
-      - Patient Records Management: View, update, and track detailed patient information, including medical history, insurance details, allergies, and emergency contacts.
-      - Appointment Scheduling: Easily schedule, manage, and cancel patient appointments, with real-time updates on appointment statuses (pending, canceled, scheduled).
-      - Responsive UI: Utilizes Chakra UI for a clean, responsive design that adapts to any screen size, ensuring ease of use for both staff and patients.
-      - Role-based Access: Provides different layouts and dashboards for healthcare providers based on their roles, such as doctors, nurses, and administrators, ensuring data security and role-appropriate access.
-      - Secure Data Handling: The platform ensures secure patient data management with encrypted storage and robust permission systems.
-      - Cloud Integration: Integrates with services like Cloudinary for handling media uploads such as patient identification documents, enabling a seamless flow of data into the platform.
-      - Pagination and Search: Efficiently handle large datasets by allowing staff to navigate patient records with pagination and search functionalities.
-      - Real-time Updates: Ensures that data is up-to-date across all users, reducing errors in patient care and administrative tasks.`,
-
-      image: kamau[8],
-      links: {
-        github: "https://github.com/SIMONKAMAU21/carepulse.git",
-        live: "https://simocare.vercel.app/",
-      },
+      title: "Simo Care",
+      description:
+        "Patient management platform for handling appointments, patient records, and healthcare workflows.",
+      tech: ["React", "Node.js", "Chakra UI", "Cloudinary"],
+      image: images[8],
+      github: "https://github.com/SIMONKAMAU21/carepulse.git",
+      live: "https://simocare.vercel.app/",
     },
     {
-      title: "Kcb portal",
+      title: "KCB Portal",
       description:
-        "A brief description of the project. Highlight key features, technologies used, and the impact it had.",
-      image: kamau[5],
-      links: {
-        github: "https://github.com/SIMONKAMAU21/KCB-portal.gi",
-        live: "https://kcb-portal.vercel.app/",
-      },
+        "A modern banking dashboard UI with authentication, analytics, and responsive design.",
+      tech: ["React", "Chakra UI", "API Integration"],
+      image: images[5],
+      github: "https://github.com/SIMONKAMAU21/KCB-portal.gi",
+      live: "https://kcb-portal.vercel.app/",
     },
     {
-      title: "click to chat",
+      title: "Click to Chat",
       description:
-        "Click to Chat is a convenient tool that allows you to initiate a WhatsApp chat with any phone number without having to save the contact in your phone. This app aims to simplify the process of connecting with people on WhatsApp, especially for one-time conversations..",
-      image: kamau[4],
-      links: {
-        github: "https://github.com/SIMONKAMAU21/click-to-chat.git",
-        live: "https://click-to-chat.vercel.app/",
-      },
+        "Tool that allows users to start WhatsApp conversations without saving phone numbers.",
+      tech: ["React", "WhatsApp API"],
+      image: images[4],
+      github: "https://github.com/SIMONKAMAU21/click-to-chat.git",
+      live: "https://click-to-chat.vercel.app/",
     },
-      {
-      title: "Kentech solutions",
+    {
+      title: "Kentech Solutions",
       description:
-        "Kentech solution is a service that helps graphic designers and businesses create stunning visuals and branding materials. From logos to marketing collateral, Kentech solutions offers a range of design services to meet your needs. Currently is still on development phase.",
-      image: kamau[11],
-      links: {
-        // github: "https://github.com/SIMONKAMAU21/click-to-chat.git",
-        live: "https://kentech-web-v1.vercel.app/",
-      },
+        "Design services platform helping brands create logos and marketing assets.",
+      tech: ["React", "Chakra UI"],
+      image: images[11],
+      live: "https://kentech-web-v1.vercel.app/",
     },
   ];
-  const bgGradient = useColorModeValue(
-    "linear(to-r, blue.900, orange.700)",
-    "linear(to-r, orange.400, blue.400)"
-  );
 
   return (
-    <Box  w="100%" h="100vh">
-      <Card
-        sx={{
-          ...cardStyles,
-          scrollbarWidth: "none",
-          "&::-webkit-scrollbar": { display: "none" },
-        }}
-      >
-        <CardHeader>
-          <Heading sx={headingStyles} bgGradient={bgGradient} bgClip="text">
-            Projects
-          </Heading>
-        </CardHeader>
-        <CardBody>
-          <SimpleGrid columns={[1, 1, 2]}  w={'100%'}>
-            {projects &&
-              projects.map((project, index) => (
-                <Box
-                  key={index}
-                  w={{ base: "100%" }}
-                  p={{ base: "10px" }}
-                  h={{base:'90%'}}
-                  overflowY={'scroll'}
-                  overscroll={'auto'}
-                  borderWidth="1px"
-                  borderRadius="xl"
-                  bg={colorMode === "light" ? "gray.100" : "gray.800"}
-                >
-                  <Heading size="md" mb={4}>
-                    {project.title}
-                  </Heading>
-                  <Image
-                    src={project.image}
-                    alt="project image"
-                    sx={imageStyles}
-                  />
-                  <Text mt={4}>{project.description}</Text>
-                  {project.links && (
-                    <Flex  mt={4} gap={4}>
-                      <Button
-                        as="a"
-                        href={project.links.github}
-                        sx={buttonStyles}
-                      >
-                        GitHub
-                      </Button>
-                      <Button
-                        as="a"
-                        href={project.links.live}
-                        sx={buttonStyles}
-                      >
-                        Visit
-                      </Button>
-                    </Flex>
+    <Box
+      minH="100vh"
+      h="100%"
+      fontFamily="'DM Sans', sans-serif"
+      sx={{
+        scrollbarWidth: "none", // For Firefox
+        "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
+      }}
+      overflow={"scroll"}
+      mb={"3%"}
+      px={{ base: 6, md: 20 }}
+      py={16}
+    >
+      <Heading color={"white"} textAlign="center" mb={12}>
+        Projects
+      </Heading>
+
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
+        {projects.map((project, index) => (
+          <Card
+            key={index}
+            bg={cardBg}
+            border="1px"
+            borderColor={borderColor}
+            borderRadius="xl"
+            overflow="hidden"
+            transition="all .3s"
+            _hover={{
+              transform: "translateY(-8px)",
+              boxShadow: "xl",
+            }}
+          >
+            <Image src={project.image} h="220px" w="100%" objectFit="cover" />
+
+            <CardBody>
+              <Stack spacing={4}>
+                <Heading size="md">{project.title}</Heading>
+
+                <Text fontSize="sm" color="gray.500">
+                  {project.description}
+                </Text>
+
+                <HStack flexWrap="wrap">
+                  {project.tech.map((tech, i) => (
+                    <Tag key={i} colorScheme="blue">
+                      {tech}
+                    </Tag>
+                  ))}
+                </HStack>
+
+                <HStack pt={2}>
+                  {project.github && (
+                    <Button
+                      size="sm"
+                      as="a"
+                      href={project.github}
+                      target="_blank"
+                      variant="outline"
+                    >
+                      GitHub
+                    </Button>
                   )}
-                </Box>
-              ))}
-          </SimpleGrid>
-        </CardBody>
-      </Card>
+
+                  {project.live && (
+                    <Button
+                      size="sm"
+                      as="a"
+                      href={project.live}
+                      target="_blank"
+                      bg={primary}
+                      color="white"
+                      _hover={{ opacity: 0.9 }}
+                    >
+                      Live Demo
+                    </Button>
+                  )}
+                </HStack>
+              </Stack>
+            </CardBody>
+          </Card>
+        ))}
+      </SimpleGrid>
     </Box>
   );
 };

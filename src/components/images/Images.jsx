@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import  {  useState } from "react";
 import {
   Box,
   Image,
-  Spinner,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -36,7 +34,7 @@ const Images = () => {
         h="100%"
         flexWrap="wrap"
         justifyContent="space-around"
-        boxShadow="5px 0px 5px 0px rgba(0,0,0,0.25)"
+        // boxShadow="5px 0px 5px 0px rgba(0,0,0,0.25)"
       >
         <>
           {simon.map((src, index) => (
@@ -54,13 +52,11 @@ const Images = () => {
         </>
       </Box>
 
-      <Modal isOpen={isOpen} onClose={onClose} size="sm">
-        <ModalOverlay bg="blackAlpha.700" />
+      <Modal justifyContent='center' bg='red.500' isOpen={isOpen} onClose={onClose} size="md">
+        <ModalOverlay bg="blackAlpha.700" display={'flex'} alignItems={'center'} />
         <ModalContent
           position="absolute"
-          bottom={{ base: "0" }}
-          // left={{ base: "0", md: "70%" }}
-          // right="0"
+          bottom={{ base: "10" }}
           m="auto"
           borderTopRadius="xl"
           maxW={{ base: "80%", md: "50%" }}
@@ -73,7 +69,7 @@ const Images = () => {
             alignItems="center"
           >
             {selectedImage && (
-              <Image h={{ base: "100%" }} src={selectedImage} alt="Selected" />
+              <Image h={{ base: "100%" }} src={selectedImage} alt="Selected" objectFit={'cover'}  />
             )}
           </ModalBody>
         </ModalContent>
